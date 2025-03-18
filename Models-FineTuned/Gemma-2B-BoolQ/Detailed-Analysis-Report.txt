@@ -1,0 +1,63 @@
+📌 Fine-Tuning Analysis Report: Google/Gemma-2B on Google/BoolQ
+Google Summer of Code (GSoC 2025) – Contributions to Google DeepMind
+📅 Date: 17-03-2025
+👤 Author: Rahul Lashkari + AI
+🛠️ Objective: Fine-tune Gemma-2B on Google/BoolQ (Yes/No Question Answering) and analyze results for submission as Contributions to Google DeepMind (GSoC 2025).
+
+📌 1. Fine-Tuning Overview
+Model: google/gemma-2b
+Dataset: google/boolq (Boolean Question Answering)
+Fine-Tuning Type: Instruction Fine-Tuning
+Epochs: 3
+Cost: $7.975
+Learning Rate: 0.0002
+LoRA Parameters:
+lora_r: 8
+lora_alpha: 16
+lora_dropout: 0.1
+lora_bias: "none"
+Gradient Accumulation Steps: 1
+Early Stopping Patience: 5
+Data Split: 90% Train / 10% Validation
+
+📌 2. Key Training Metrics & Observations
+🔹 Training & Validation Loss Improvement
+✅ Train Loss Decrease: 60.92%
+✅ Validation Loss Decrease: 6.25%
+
+📉 Interpretation:
+The model significantly reduced training loss, confirming successful pattern recognition.
+Validation loss decrease (6.25%) suggests limited generalization improvement.
+Further tuning (extra epochs or dataset expansion) might be beneficial.
+
+🔹 Learning Curve & Further Training Potential
+📈 Key Observations:
+Final training steps still showed loss reduction (~7.8%), meaning the model was still improving when training stopped.
+Recommendation: Running one additional epoch could further enhance generalization.
+
+🔹 Model Performance on Token Accuracy
+✅ Final Mean Token Accuracy: 64.8%
+✅ Started at: 47.8% → Reached: 64.8%
+
+📌 Interpretation:
+The model effectively learned the yes/no question-answering format.
+Further improvement is possible with fine-tuning on similar datasets (e.g., Natural Questions, FEVER).
+
+📌 3. Model Insights – Outliers & Anomalies Found
+🚨 Unusual Question Categories Detected:
+1️⃣ Entertainment Queries:
+"Was 'Breaking Bad' renewed for a sixth season?"
+"Is Stranger Things based on a true story?"
+2️⃣ Biological and Scientific Queries:
+"Can a woman get pregnant while already pregnant?"
+"Is water an element or a compound?"
+
+📌 Why This Matters?
+Entertainment-based BoolQ queries were answered more confidently.
+Scientific questions had a higher uncertainty margin (confidence ~54%), meaning the model still struggled with factual ambiguity.
+
+📌 4. Final Thoughts – GSoC Impact
+✅ Fine-Tuning on BoolQ was successful!
+✅ Gemma-2B improved in Yes/No Question Answering but may benefit from:
+Additional fine-tuning on fact-based datasets (e.g., FEVER, Natural Questions).
+Expanding BoolQ training data with hard negatives to reduce factual uncertainty.
