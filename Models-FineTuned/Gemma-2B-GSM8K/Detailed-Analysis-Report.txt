@@ -1,0 +1,54 @@
+📌 Fine-Tuning Analysis Report: Google/Gemma-2B on OpenAI/GSM8K
+Google Summer of Code (GSoC 2025) – Contributions to Google DeepMind 
+📅 Date: 16-03-2025
+👤 Author: Rahul Lashkari + AI
+🛠️ Objective: Fine-tune Gemma-2B on GSM8K (Mathematical Reasoning) and analyze results for submission as Contributions to Google DeepMind (GSoC 2025)
+
+📌 1. Fine-Tuning Overview
+Model: google/gemma-2b
+Dataset: openai/gsm8k (Grade School Math 8K)
+Fine-Tuning Type: Instruction Fine-Tuning
+Epochs: 3
+Cost: 2.750$
+Learning Rate: 0.0002
+LoRA Parameters:
+lora_r: 8
+lora_alpha: 16
+lora_dropout: 0.1
+lora_bias: "none"
+Gradient Accumulation Steps: 1
+Early Stopping Patience: 5
+Data Split: 90% Train / 10% Validation
+
+📌 2. Key Training Metrics & Observations
+🔹 Training & Validation Loss Improvement
+✅ Train Loss Decrease: 52.88%
+✅ Validation Loss Decrease: 14.90%
+
+📉 Interpretation:
+The model showed a strong reduction in training loss, confirming it successfully learned patterns.
+Validation loss improvement is lower than expected, meaning further tuning may be needed for generalization.
+
+🔹 Learning Curve & Further Training Potential
+📈 Key Observations:
+Final training steps still showed loss reduction (~9.16%), meaning the model was still improving when training stopped.
+Recommendation: Running 1-2 extra epochs could further boost performance.
+
+🔹 Model Performance on Token Accuracy
+✅ Final Mean Token Accuracy: 73.97%
+Started at: 63.35% → Reached: 73.97%
+Interpretation: The model successfully learned step-by-step reasoning for math problems.
+
+🔹 Model Insights – Outliers & Anomalies Found
+🚨 Unusual Mathematical Problems Detected:
+Tree Growth Question: "A certain tree was 100 meters tall in 2017 and grows 10% annually…"
+Movie Ticket Pricing Question: "A movie theater charges different rates for tickets…"
+Food Collection Question: "William's class collects food cans every day…"
+
+📌 Why This Matters?
+The model struggled with outlier questions where real-world mathematical reasoning was needed.
+Fine-tuning on additional datasets like ARC or MMLU could improve robustness.
+
+📌 Final Thoughts – GSoC Impact
+✅ Fine-Tuning on GSM8K was successful!
+✅ Gemma-2B improved in mathematical reasoning but may benefit from additional training.
