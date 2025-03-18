@@ -1,0 +1,2 @@
+# Google-DeepMind-Contributions
+ Executed Fine-tuning & Benchmarking, optimizing 5+ LLMs (Gemma-family, Mistral-7B, OpenLLaMA-3B) across 6+ critical datasets (GSM8K, BoolQ, IMDB, Alpaca-GPT4 & more). Delivered a research-level contribution—including model training, evaluation, insights, structured reports, DeepMind benchmark comparisons, and extensive documentation—all aimed at advancing AI reasoning & factual accuracy. Also crafting a custom dataset from open-sourced V0 system prompts. 🛰️
