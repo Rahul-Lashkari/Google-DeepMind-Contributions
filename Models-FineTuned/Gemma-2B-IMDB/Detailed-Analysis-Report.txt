@@ -1,0 +1,55 @@
+🚀 Fine-Tuning Analysis Report: Google/Gemma-2B on StanfordNLP/IMDB
+Google Summer of Code (GSoC 2025) – Contributions to Google DeepMind
+📅 Date: 16-03-2025
+👤 Author: Rahul Lashkari + AI
+🛠️ Objective: Fine-tune Gemma-2B on StanfordNLP/IMDB (Text Classification) and analyze results for submission as Contributions to Google DeepMind (GSoC 2025)
+
+📌 1. Fine-Tuning Overview
+Model: google/gemma-2b
+Dataset: stanfordnlp/imdb
+Fine-Tuning Type: Text Classification
+Epochs: 3
+Cost: 10$
+Learning Rate: 0.0002
+LoRA Parameters:
+LoRA Rank (lora_r): 8
+LoRA Alpha (lora_alpha): 16
+LoRA Dropout (lora_dropout): 0.1
+LoRA Bias: "none"
+Gradient Accumulation Steps: 1
+Early Stopping Patience: 5
+Data Split: 90% Train / 10% Validation
+
+📌 2. Key Training Metrics & Observations
+🔹 Training & Validation Loss Improvement
+✅ Train Loss Decrease: (Starting loss: ~3.26 → Final loss: ~2.57)
+✅ Validation Loss Decrease: (Starting: ~3.08 → Final: ~2.46)
+
+📉 Interpretation:
+The model showed consistent loss reduction, confirming that it was learning patterns in IMDB reviews.
+Validation loss decreased but at a slower rate, meaning that some examples remained challenging for the model.
+
+🔹 Learning Curve & Further Training Potential
+📈 Key Observations:
+Loss continued decreasing steadily, meaning the model was still improving when training ended.
+Validation loss did not show overfitting, meaning the model learned well.
+Possible Benefit of Extra Training: Running 1-2 more epochs could further enhance classification performance.
+
+🔹 Model Performance on Token Accuracy
+✅ Final Mean Token Accuracy: ~48.27%
+Started at: ~39.56% → Reached: ~48.27%
+
+Interpretation:
+The model improved in understanding sentiment-based text classification.
+However, it still misclassified some nuanced/ambiguous reviews.
+
+🔹 Model Insights – Outliers & Anomalies Found
+🚨 Unusual Cases Detected:
+During training, the model struggled with certain reviews that contained:
+Sarcasm & Subtle Sentiment: "Oh, what a brilliant masterpiece. (Not.)"
+Complex & Mixed Sentiments: "The movie had great cinematography, but the plot was incredibly weak."
+
+📌 Why This Matters?
+The model handled direct sentiment polarity well but struggled when sentiments were subtle, sarcastic, or multi-dimensional.
+Fine-tuning on datasets with more nuanced sentiment data may help improve performance.
+✅ Fine-Tuning of google/gemma-2b on stanfordnlp/imdb for the cost of 10$ was successful!

@@ -1,0 +1,65 @@
+{
+	"deployment_name": "",
+	"pretrainedmodel_config": {
+		"model_path": "google/gemma-2b",
+		"other_model_info": null,
+		"resume_checkpoint_path": "",
+		"use_lora": true,
+		"lora_r": 8,
+		"lora_alpha": 16,
+		"lora_dropout": 0.1,
+		"lora_bias": "none",
+		"use_quantization": false,
+		"use_unsloth": false,
+		"use_gradient_checkpointing": false,
+		"parallelization": "nmp"
+	},
+	"data_config": {
+		"data_path": "stanfordnlp/imdb",
+		"data_subset": "plain_text",
+		"data_source_type": "hub_link",
+		"cutoff_len": 512,
+		"data_split_config": {
+			"train": 0.9,
+			"validation": 0.1
+		},
+		"prevalidated": true,
+		"concat_config": {
+			"0": {
+				"text": "Classify the Text below \n\n###Text:",
+				"column": false
+			},
+			"1": {
+				"text": "text",
+				"column": true
+			},
+			"2": {
+				"text": ">>>###Classification:",
+				"column": false
+			},
+			"3": {
+				"text": "label",
+				"column": true
+			}
+		}
+	},
+	"training_config": {
+		"early_stopping_patience": 5,
+		"num_train_epochs": 3,
+		"gradient_accumulation_steps": 1,
+		"warmup_steps": 50,
+		"learning_rate": 0.0002,
+		"lr_scheduler_type": "reduce_lr_on_plateau",
+		"group_by_length": false,
+		"preference_optimization": "DONT",
+		"optimizer": "adamw_hf",
+		"use_hugging_face": false
+	},
+	"logging_config": {
+		"use_wandb": false,
+		"wandb_username": "",
+		"wandb_login_key": "",
+		"wandb_project": "",
+		"wandb_run_name": ""
+	}
+}
